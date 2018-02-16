@@ -36,6 +36,6 @@ class CallbacksController < ApplicationController
       end
     }
 
-    "OK"
+    head :ok
   end
 end
