@@ -26,3 +26,10 @@ test:
   pool: 5
   username: postgres
   password: postgres
+
+production:
+  <<: *default
+  database: line-bot-test_production
+  pool: 5
+  username: postgres
+  password: postgres
