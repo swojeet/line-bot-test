@@ -18,8 +18,7 @@ class StaticPagesController < ApplicationController
     request.content_type = "application/x-www-form-urlencoded"
     request.set_form_data(
       "client_id" => "1563433382",
-      "client_secret" => "31274175a0eeb4b3f2ef4b6331fc553c
-",
+      "client_secret" => "31274175a0eeb4b3f2ef4b6331fc553c",
       "code" => code,
       "grant_type" => "authorization_code",
       "redirect_uri" => "https://linebot-staging.herokuapp.com/",
