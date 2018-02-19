@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
 
   def home
+    # @response = get_access_token('hO0L3ihpxOhNmoUut34w')
     #Redirection from Login With Line returns these
     if params.has_key? (:code)
       code = params[:code]
@@ -35,6 +36,6 @@ class StaticPagesController < ApplicationController
 
     # response.code
     # response.body
-    return response
+    return response.body
   end
 end
