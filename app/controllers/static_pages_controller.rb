@@ -22,8 +22,7 @@ class StaticPagesController < ApplicationController
 ",
       "code" => code,
       "grant_type" => "authorization_code",
-      "redirect_uri" => "https://linebot-staging.herokuapp.com/
-",
+      "redirect_uri" => "https://linebot-staging.herokuapp.com/",
     )
 
     req_options = {
