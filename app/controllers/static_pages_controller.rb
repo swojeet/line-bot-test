@@ -10,7 +10,7 @@ class StaticPagesController < ApplicationController
       @response = JSON.parse(get_access_token(code))
       @access_token = @response['access_token']
       @id_token = @response['id_token']
-      @user_info = get_user_info(@access_token)
+      @user_info = JSON.parse(get_user_info(@access_token))
     end
   end
 
