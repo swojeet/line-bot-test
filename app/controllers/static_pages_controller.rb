@@ -7,6 +7,7 @@ class StaticPagesController < ApplicationController
       state = params[:state]
       friendship_status_changed = params[:friendship_status_changed]
       @response = get_access_token(code)
+      binding.pry
     end
   end
 
