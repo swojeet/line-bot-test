@@ -9,7 +9,22 @@
   <h1>ID Token</h1>
   <%= @id_token %>
   <h1>User Info</h1>
-  Id: <%= @user_info['id'] %>
-  User's Name: <%= @user_info['displayName'] %>
-  <%= image_tag(@user_info['pictureUrl']) %>
+  <p>
+    Id: <%= @user_info['userId'] %>
+  </p>
+
+  <p>
+    User's Name: <%= @user_info['displayName'] %>
+  </p>
+
+  <p>
+    <%= image_tag(@user_info['pictureUrl']) %>
+  </p>
+
+  <p>
+    Status:
+    <% if @user_info['statusMessage'] %>
+      <%= @user_info['statusMessage'] %>
+    <% end %>
+  </p>
 <% end %>
