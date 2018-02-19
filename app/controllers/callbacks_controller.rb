@@ -22,9 +22,10 @@ class CallbacksController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
+          puts event
           message = {
             type: 'text',
-            text: "Hi #{event.source["userId"]}, What do you mean by '" + event.message['text'] + "'"
+            text: "Hi #{event.message["id"]}, What do you mean by '" + event.message['text'] + "'"
           }
           client.reply_message(event['replyToken'], message)
         when Line::Bot::Event::MessageType::Image, Line::Bot::Event::MessageType::Video
