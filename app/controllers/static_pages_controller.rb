@@ -43,7 +43,7 @@ class StaticPagesController < ApplicationController
   def get_user_info(access_token)
     uri = URI.parse("https://api.line.me/v2/profile")
     request = Net::HTTP::Get.new(uri)
-    request["Authorization"] = "Bearer {#{access_token}}"
+    request["Authorization"] = "Bearer #{access_token}"
 
     req_options = {
       use_ssl: uri.scheme == "https",
