@@ -10,6 +10,7 @@ class StaticPagesController < ApplicationController
       @response = JSON.parse(get_access_token(code))
       @access_token = @response['access_token']
       @id_token = @response['id_token']
+      @user_info = get_user_info(@access_token)
     end
   end
 
@@ -37,5 +38,22 @@ class StaticPagesController < ApplicationController
     # response.code
     # response.body
     return response.body
+  end
+
+  def get_user_info(access_token)
+    uri = URI.parse("https://api.line.me/v2/profile")
+    request = Net::HTTP::Get.new(uri)
+    request["Authorization"] = "Bearer {#{access_token}}"
+
+    req_options = {
+      use_ssl: uri.scheme == "https",
+    }
+
+    response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+      http.request(request)
+    end
+
+    # response.code
+    response.body
   end
 end
