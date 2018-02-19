@@ -5,7 +5,6 @@ class StaticPagesController < ApplicationController
     if params.has_key? (:code)
       code = params[:code]
       state = params[:state]
-      @code = code
       friendship_status_changed = params[:friendship_status_changed]
       @response = get_access_token(code)
     end
@@ -35,6 +34,7 @@ class StaticPagesController < ApplicationController
     end
 
     # response.code
-    response.body
+    # response.body
+    return response
   end
 end
