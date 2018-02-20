@@ -45,7 +45,7 @@ class UserInfoServices
     end
 
     # response.code
-    response.body
+    return response.body
   end
 
 end
