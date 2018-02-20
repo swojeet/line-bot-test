@@ -3,6 +3,8 @@ class StaticPagesController < ApplicationController
   def home
     # @response = get_access_token('hO0L3ihpxOhNmoUut34w')
     #Redirection from Login With Line returns these
+    @authorization_url = 'https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1563433382&redirect_uri=https%3A%2F%2Flinebot-staging.herokuapp.com%2F&state=' + SecureRandom.hex + '&scope=openid%20profile'
+
     if params.has_key? (:code)
       code = params[:code]
       state = params[:state]
@@ -11,7 +13,8 @@ class StaticPagesController < ApplicationController
       @access_token = @response['access_token']
       @id_token = @response['id_token']
       @user_info = JSON.parse(UserInfoServices.get_user_info(@access_token))
-      
+
+
       User.create(line_id: @user_info['userId'], line_name: @user_info['displayName']) unless (User.where(line_id: @user_info['userId']).exists?)
 
     end
