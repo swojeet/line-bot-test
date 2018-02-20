@@ -11,8 +11,7 @@ class StaticPagesController < ApplicationController
       @access_token = @response['access_token']
       @id_token = @response['id_token']
       @user_info = JSON.parse(UserInfoServices.get_user_info(@access_token))
-      puts "USER ID ========= " + @user_info['userId']
-      puts @user_info['displayName']
+      
       User.create(line_id: @user_info['userId'], line_name: @user_info['displayName']) unless (User.where(line_id: @user_info['userId']).exists?)
 
     end

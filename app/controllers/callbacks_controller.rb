@@ -22,7 +22,7 @@ class CallbacksController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
-          user_name = User.find(line_id: event["source"]["userId"]) || ""
+          user_name = User.find_by(line_id: event["source"]["userId"]) || ""
           message = {
             type: 'text',
             text: "Hi #{user_name}, What do you mean by '" + event.message['text'] + "'"
