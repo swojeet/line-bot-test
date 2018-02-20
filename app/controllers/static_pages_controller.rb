@@ -7,10 +7,10 @@ class StaticPagesController < ApplicationController
       code = params[:code]
       state = params[:state]
       friendship_status_changed = params[:friendship_status_changed]
-      @response = JSON.parse(get_access_token(code))
+      @response = JSON.parse(UserInfoServices.get_access_token(code))
       @access_token = @response['access_token']
       @id_token = @response['id_token']
-      @user_info = JSON.parse(get_user_info(@access_token))
+      @user_info = JSON.parse(UserInfoServices.get_user_info(@access_token))
     end
   end
 
