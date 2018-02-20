@@ -11,6 +11,9 @@ class StaticPagesController < ApplicationController
       @access_token = @response['access_token']
       @id_token = @response['id_token']
       @user_info = JSON.parse(UserInfoServices.get_user_info(@access_token))
+      User.find_or_create_by(line_id: @user_info['userId']) do |user|
+        user.line_name = @user_info['displayName']
+      end
     end
   end
 
