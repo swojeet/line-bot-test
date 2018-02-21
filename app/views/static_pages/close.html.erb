@@ -1,0 +1,18 @@
+<head>
+  <script language="javascript" type="text/javascript">
+  function windowClose() {
+    window.open('','_parent','');
+    window.close();
+  }
+  </script>
+</head>
+
+<input type="button" value="Close this window" onclick="windowClose();">
+
+<%= javascript_tag do %>
+  function closeMe()
+  {
+  var win = window.open(“”,”_self”); /* url = “” or “about:blank”; target=”_self” */
+  win.close();
+  }
+<% end %>

@@ -20,6 +20,9 @@ class StaticPagesController < ApplicationController
     end
   end
 
+  def close;end
+  def close_page;end
+
   # private
   # def get_access_token(code)
   #   uri = URI.parse("https://api.line.me/oauth2/v2.1/token")

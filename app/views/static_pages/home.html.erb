@@ -3,11 +3,6 @@
 <%= link_to 'Log In Using Line', @authorization_url %>
 
 <% if defined? (@response) %>
-  <%= @response %>
-  <h1>ACCESS TOKEN</h1>
-  <%= @access_token %>
-  <h1>ID Token</h1>
-  <%= @id_token %>
   <h1>User Info</h1>
   <p>
     Id: <%= @user_info['userId'] %>
@@ -27,4 +22,8 @@
       <%= @user_info['statusMessage'] %>
     <% end %>
   </p>
+
 <% end %>
+
+
+<%= link_to 'Close Window', close_path %>
