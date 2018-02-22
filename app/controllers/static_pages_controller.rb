@@ -2,6 +2,7 @@ class StaticPagesController < ApplicationController
 
   def home
     # @response = get_access_token('hO0L3ihpxOhNmoUut34w')
+    @users = User.all
     #Redirection from Login With Line returns these
     @authorization_url = 'https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1563433382&redirect_uri=https%3A%2F%2Flinebot-staging.herokuapp.com%2F&state=' + SecureRandom.hex + '&scope=openid%20profile'
 

@@ -24,7 +24,12 @@
   </p>
 <% end %>
 
+<h1>Send Message to All Users</h1>
 <%= form_for :message, url: send_message_path, method: :get do |form| %>
   <%= form.text_field :name %>
-  <%= form.submit  %>
+  <% @users.each do |user| %>
+    <%= check_box_tag 'user_ids[]', user.line_id %>
+    <%= h user.line_name %>
+  <% end %>
+  <%= form.submit 'Send'  %>
 <% end  %>
