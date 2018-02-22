@@ -46,15 +46,15 @@ class CallbacksController < ApplicationController
   def send_message
     message = {
       type: 'text',
-      text: 'Wassup Man??'
+      text: params["message"]["name"]
     }
     client = Line::Bot::Client.new { |config|
         config.channel_secret = '2066bd9e1604a2beb7fc6c301fbbe205'
         config.channel_token = 'v5PUQugKCRhUmBZ/fb9s6zG8b9se+CcgONjpz4syrS6vRvKdoGyEKFvc9ZijdCjZCdyVNQoRGRDzhClCUs7Bl+GxmasbKQzw0X/73xjUDN3r1Ei/uOPlhRWs0KiJELI56Hi8kk9tVVm8+CpSg57wMwdB04t89/1O/w1cDnyilFU='
     }
-    @users = User.all
-    @users.each do |user|
-      response = client.push_message(user.line_id, message)
+    @users_ids = User.all.collect { |p| p.line_id}
+    @users_ids.each do |id|
+      response = client.push_message(id, message)
       p response
     end
   end
