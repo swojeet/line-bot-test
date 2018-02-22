@@ -24,4 +24,7 @@
   </p>
 <% end %>
 
-<%= link_to 'Send Message', send_message_path %>
+<%= form_for :message, url: send_message_path, method: :get do |form| %>
+  <%= form.text_field :name %>
+  <%= form.submit  %>
+<% end  %>

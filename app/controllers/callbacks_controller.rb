@@ -46,7 +46,7 @@ class CallbacksController < ApplicationController
   def send_message
     message = {
       type: 'text',
-      text: 'Wassup Man??'
+      text: params["message"]["name"]
     }
     client = Line::Bot::Client.new { |config|
         config.channel_secret = '2066bd9e1604a2beb7fc6c301fbbe205'
